@@ -20,6 +20,7 @@ namespace WindowsGame1
         SpriteBatch spriteBatch;
         Circle MyCircle;
         public static List<Surface> surfaces = new List<Surface>();
+        public static float camX,camY;
 
         public static int windowHeight, windowWidth;
 
@@ -60,7 +61,7 @@ namespace WindowsGame1
                 surfaces.Add(new Surface(Content, spriteBatch, 43, 42, i*43,windowHeight));
             }
 
-
+            
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200, windowHeight - 42));
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200, windowHeight - 42));
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 243, windowHeight - 42*2));
@@ -119,6 +120,7 @@ namespace WindowsGame1
 
 
 
+
             MyCircle.update();
 
             base.Update(gameTime);
@@ -134,15 +136,24 @@ namespace WindowsGame1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            //spriteBatch.Begin();
-            //MyLevel1.draw();
+            if (MyCircle.Pos.Y > windowHeight/2)
+            {
+                camY = 0;
+            }
+            else
+            {
+                camY = -MyCircle.Pos.Y + windowHeight / 2.0f;
+            }
+            Vector3 transVector = new Vector3(0.0f, camY, 0.0f);
+            spriteBatch.Begin(SpriteSortMode.BackToFront,BlendState.AlphaBlend,null,null,null,null,Matrix.CreateTranslation(transVector));
+            //MyLevel1.draw()
             for (int i = 0; i < surfaces.Count; i++)
             {
                 surfaces[i].draw();
             }
 
             MyCircle.draw();
-            //spriteBatch.End();
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

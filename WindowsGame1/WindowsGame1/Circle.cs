@@ -12,7 +12,7 @@ namespace WindowsGame1
     public class Circle
     {int currentFrame = 0;
         public Vector2 Pos;
-        public Vector2 Velocity;
+        public static Vector2 Velocity;
         public float frictionVal = 0.5f;
         public SpriteBatch spriteBatch;
         public Texture2D SpriteTexture;
@@ -211,9 +211,9 @@ namespace WindowsGame1
 
         public void draw()
         {
-            spriteBatch.Begin();
+            //spriteBatch.Begin();
             spriteBatch.Draw(SpriteTexture, Pos, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
-            spriteBatch.End();
+            //spriteBatch.End();
         }
     
 

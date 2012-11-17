@@ -19,6 +19,7 @@ namespace WindowsGame1
         public SpriteBatch spriteBatch;
         public Texture2D SpriteTexture;
         public Rectangle Pos;
+        public int tileXPos;
 
         public Surface(ContentManager Content, SpriteBatch spriteBatch, int width, int height, int xStart, int yStart)
         {
@@ -28,6 +29,7 @@ namespace WindowsGame1
             this.Pos.Width = width;
             this.Pos.X = xStart;
             this.Pos.Y = yStart;
+            //this.tileXPos = inTileXPos*43;
         }
 
         public Vector2 Center()
@@ -37,9 +39,9 @@ namespace WindowsGame1
 
         public void draw()
         {
-            spriteBatch.Begin();
+            //spriteBatch.Begin();
             spriteBatch.Draw(SpriteTexture, Pos, Color.White);
-            spriteBatch.End();
+            //spriteBatch.End();
         }
 
         public CollisionType[] CheckCollision(Circle s)
