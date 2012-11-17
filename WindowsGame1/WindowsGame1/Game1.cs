@@ -56,13 +56,21 @@ namespace WindowsGame1
             MyCircle = new Circle(Content, spriteBatch);
             for (int i = 0; i < (float)Math.Ceiling((double)800 / (double)43)-3; i++)
             {
-                if (i == 5)
-                {
-                    surfaces.Add(new Surface(Content, spriteBatch, 43, 42, i * 43, windowHeight-45));
-                    continue;
-                }
+                if (i == 6 || i ==7) continue;
                 surfaces.Add(new Surface(Content, spriteBatch, 43, 42, i*43,windowHeight));
             }
+
+
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200, windowHeight - 42));
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200, windowHeight - 42));
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 243, windowHeight - 42*2));
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200+43*2, windowHeight - 42*3));
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43*5, windowHeight - 42*4));
+
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 6, windowHeight - 42 * 4));
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 7, windowHeight - 42 * 4));
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 8, windowHeight - 42 * 4));
+
 
             // TODO: use this.Content to load your game content here
         }

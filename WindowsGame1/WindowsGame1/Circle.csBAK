@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
 
 namespace WindowsGame1
 {
-    public class Circle
-    {int currentFrame = 0;
+    class Circle
+    {
+        int currentFrame = 0;
         public Vector2 Pos;
         public Vector2 Velocity;
         public float frictionVal = 0.5f;
         public SpriteBatch spriteBatch;
-        public Texture2D SpriteTexture;
+        private Texture2D SpriteTexture;
         bool jumping = false;
         float Yacceleration = 0.0f;
 
@@ -34,36 +38,15 @@ namespace WindowsGame1
             currentFrame++;
         }
 
-        public Vector2 Center()
-        {
-            return (this.Pos - new Vector2(this.SpriteTexture.Width / 2.0f));
-        }
-
         public void update()
         {
+
+
             List<Surface> surfacesUnder = new List<Surface>();
-            CollisionType collision = CollisionType.none;
-            Surface collidedSurface = null;
+
             for (int i = 0; i < Game1.surfaces.Count; i++)
             {
-
-                if (Game1.surfaces[i].CheckCollision(this)[2] == CollisionType.corner)
-                {
-
-                    this.Pos.Y = Game1.surfaces[i].Pos.Y - this.SpriteTexture.Height;
-                    Velocity.Y = 0;
-                    Yacceleration = 0;
-
-                    jumping = false;
-                }
-
-                else if ((Game1.surfaces[i].CheckCollision(this)[1] == CollisionType.left || Game1.surfaces[i].CheckCollision(this)[1] == CollisionType.right) && Game1.surfaces[i].CheckCollision(this)[0] != CollisionType.bottom)
-                {
-                    collision = Game1.surfaces[i].CheckCollision(this)[1];
-                    collidedSurface = Game1.surfaces[i];
-                }
-
-                if (Game1.surfaces[i].Pos.X <= this.Pos.X + SpriteTexture.Width / 2.0f && Game1.surfaces[i].Pos.X + Game1.surfaces[i].SpriteTexture.Width >= this.Pos.X + SpriteTexture.Width / 2.0f)
+                if (Game1.surfaces[i].pos.X <= this.Pos.X + SpriteTexture.Width / 2.0f && Game1.surfaces[i].pos.X + Game1.surfaces[i].SpriteTexture.Width >= this.Pos.X + SpriteTexture.Width / 2.0f)
                 {
                     surfacesUnder.Add(Game1.surfaces[i]);
                 }
@@ -83,57 +66,44 @@ namespace WindowsGame1
                 if (closest == null)
                 {
                     //if(surf.pos.Y >= this.Pos.Y + this.SpriteTextured.Height)
-                    if (surf.Pos.Y >= this.Pos.Y + this.SpriteTexture.Height)
+                    if (surf.pos.Y >= this.Pos.Y + this.SpriteTexture.Height)
                         closest = surf;
                 }
-                else if (surf.Pos.Y >= this.Pos.Y + this.SpriteTexture.Height && surf.Pos.Y <= closest.Pos.Y)
+                else if (surf.pos.Y >= this.Pos.Y + this.SpriteTexture.Height && surf.pos.Y <= closest.pos.Y)
                 {
                     closest = surf;
                 }
 
             }
+
             if (closest == null) jumping = true;
+
 
             if (jumping)
             {
-                if (closest == null || (Pos.Y + SpriteTexture.Height <= closest.Pos.Y))
+                if (closest == null || Pos.Y + SpriteTexture.Height <= closest.pos.Y)
                 {
                     Velocity.Y -= Yacceleration;
                     Yacceleration -= 0.1f;
                 }
                 else if (closest != null)
                 {
-                    Pos.Y = closest.Pos.Y - SpriteTexture.Height;//Game1.windowHeight - SpriteTexture.Height;   
+                    //if (closest != null)
+                    //{
+                        //if (closest.pos.Y > Pos.Y + SpriteTexture.Height)
+                        //{
+                            Pos.Y = closest.pos.Y - SpriteTexture.Height;//Game1.windowHeight - SpriteTexture.Height;
+                        //}
+                    //}
                     Velocity.Y = 0;
                     Yacceleration = 0;
                     jumping = false;
                 }
+
             }
 
-            if (collision == CollisionType.none)
-            {
-                Pos.X += Velocity.X;
-            }
-            else
-            {
-                Velocity.X *= 0;
-                this.Pos.X = collision == CollisionType.left ? collidedSurface.Pos.X - this.SpriteTexture.Width - 3 : collidedSurface.Pos.X + collidedSurface.SpriteTexture.Width + 3;
-            }
-
+            Pos.X += Velocity.X;
             Pos.Y += Velocity.Y;
-
-            if (closest != null && Pos.Y + this.SpriteTexture.Height > closest.Pos.Y)
-            {
-                this.Pos.Y = closest.Pos.Y - SpriteTexture.Height;
-                jumping = false;
-                Velocity.Y = 0;
-                Yacceleration = 0;
-            }
-            else
-            {
-                jumping = true;
-            }
-
         }
 
         public void keyPressed(Keys pressed)
@@ -215,7 +185,5 @@ namespace WindowsGame1
             spriteBatch.Draw(SpriteTexture, Pos, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
             spriteBatch.End();
         }
-    
-
     }
 }
