@@ -22,7 +22,6 @@ namespace WindowsGame1
         public ContentManager Content;
         public float scaledWidth, scaledHeight;
         
-
         private int bounced = 0;
 
         public Circle(ContentManager Content, SpriteBatch spriteBatch)
@@ -30,7 +29,8 @@ namespace WindowsGame1
             this.Content = Content;
             this.spriteBatch = spriteBatch;
             SpriteTexture = Content.Load<Texture2D>("ballsmall");
-            Pos.Y = Game1.windowHeight - 38;
+            Pos.Y = Game1.windowHeight - 80;
+            jumping = true;
             scaledHeight = SpriteTexture.Height * scale;
             scaledWidth = SpriteTexture.Width * scale;
         }
@@ -71,6 +71,11 @@ namespace WindowsGame1
             bool collisionTop = false;
             for (int i = 0; i < Game1.surfaces.Count; i++)
             {
+
+                if (Game1.surfaces[i].CheckCollision(this)[0] == CollisionType.bottom)
+                {
+                    int k = 0;
+                }
 
                 if (Game1.surfaces[i].CheckCollision(this)[0] == CollisionType.top)
                 {
@@ -117,20 +122,20 @@ namespace WindowsGame1
                 if (closest == null)
                 {
                     //if(surf.pos.Y >= this.Pos.Y + this.SpriteTextured.Height)
-                    if (surf.Pos.Y >= this.Pos.Y + this.scaledHeight)
+                    if (surf.Pos.Y >= this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight)
                         closest = surf;
                 }
-                else if (surf.Pos.Y >= this.Pos.Y + this.scaledHeight && surf.Pos.Y <= closest.Pos.Y)
+                else if (surf.Pos.Y >= this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight && surf.Pos.Y <= closest.Pos.Y)
                 {
                     closest = surf;
                 }
 
             }
             if (closest == null) jumping = true;
-
+            else if (closest.Pos.Y > this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + scaledHeight) jumping = true;
             if (jumping)
             {
-                if (closest == null || (this.Pos.Y + (this.scaledHeight - this.SpriteTexture.Height)/2 + this.scaledHeight <= closest.Pos.Y))//(Pos.Y + scaledHeight <= closest.Pos.Y))
+                if (closest == null || (this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight <= closest.Pos.Y))//(Pos.Y + scaledHeight <= closest.Pos.Y))
                 {
                     Velocity.Y -= Yacceleration;
                     Yacceleration -= 0.1f;
@@ -147,12 +152,15 @@ namespace WindowsGame1
             if (collisionTop)
             {
                 Velocity.Y *= -1;
-                this.Pos.Y = topCollided;
+                this.Pos.Y = topCollided + 5;
             }
+
+            
 
             if (collision == CollisionType.none)
             {
                 Pos.X += Velocity.X;
+                Pos.Y += Velocity.Y;
             }
             else if(collision == CollisionType.right || collision == CollisionType.left)
             {
@@ -161,18 +169,12 @@ namespace WindowsGame1
                 this.Pos.X = collision == CollisionType.left ? collidedSurface.Pos.X - this.scaledWidth - 3 : collidedSurface.Pos.X + collidedSurface.SpriteTexture.Width + 3;
             }
 
-            Pos.Y += Velocity.Y;
-
-            if (closest != null && Pos.Y + (this.scaledHeight - this.SpriteTexture.Height) / 2 + this.scaledHeight > closest.Pos.Y)
+            if (closest != null && this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight > closest.Pos.Y)
             {
                 this.Pos.Y = closest.Pos.Y - scaledHeight;
                 jumping = false;
                 Velocity.Y = 0;
                 Yacceleration = 0;
-            }
-            else
-            {
-                jumping = true;
             }
 
         }

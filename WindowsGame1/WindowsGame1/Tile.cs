@@ -15,7 +15,10 @@ namespace WindowsGame1
     }
 
     public class Surface
-    {   
+    {
+
+        public static float collisionBuffer = 10;
+
         public SpriteBatch spriteBatch;
         public Texture2D SpriteTexture;
         public Rectangle Pos;
@@ -25,7 +28,7 @@ namespace WindowsGame1
         public Surface(ContentManager Content, SpriteBatch spriteBatch, int width, int height, int xStart, int yStart, Color tileColor)
         {
             this.spriteBatch = spriteBatch;
-            SpriteTexture = Content.Load<Texture2D>("Tile");
+            SpriteTexture = Content.Load<Texture2D>("groundTile");
             this.Pos.Height = height;
             this.Pos.Width = width;
             this.Pos.X = xStart;
@@ -54,7 +57,7 @@ namespace WindowsGame1
 
                 CollisionType[] returnVal = new CollisionType[3];
 
-                if (s.Pos.Y >= this.Pos.Y + SpriteTexture.Height - 3) returnVal[0] = CollisionType.top;
+                if (s.Pos.Y >= this.Pos.Y + SpriteTexture.Height - collisionBuffer) returnVal[0] = CollisionType.top;
 
                 else if (s.Pos.Y + s.scaledHeight <= this.Pos.Y) returnVal[0] = CollisionType.bottom;
 
@@ -63,16 +66,17 @@ namespace WindowsGame1
 
 
 
-                if (s.Pos.X + s.scaledWidth <= this.Pos.X) returnVal[1] = CollisionType.left;
+                if (s.Pos.X + s.scaledWidth <= this.Pos.X + collisionBuffer) returnVal[1] = CollisionType.left;
 
-                else if (s.Pos.X >= this.Pos.X + this.SpriteTexture.Width) returnVal[1] = CollisionType.right;
+                else if (s.Pos.X >= this.Pos.X + this.SpriteTexture.Width - collisionBuffer) returnVal[1] = CollisionType.right;
 
                 else returnVal[1] = CollisionType.none;
 
 
 
 
-                if (s.Pos.Y < this.Pos.Y && s.Pos.Y + s.scaledHeight > this.Pos.Y) returnVal[2] = CollisionType.topCorner;
+                if (s.Pos.Y < this.Pos.Y + SpriteTexture.Height 
+                  && s.Pos.Y + s.scaledHeight > this.Pos.Y + SpriteTexture.Height) returnVal[2] = CollisionType.bottomCorner;
 
                 else returnVal[2] = CollisionType.none;
 

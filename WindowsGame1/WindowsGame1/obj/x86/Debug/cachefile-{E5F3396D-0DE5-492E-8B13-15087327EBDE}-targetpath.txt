@@ -1,7 +1,7 @@
 Content\ball.xnb
 Content\cloud.xnb
 Content\groundTile.xnb
-Content\ballsmall.xnb
 Content\cherry.xnb
+Content\ballsmall.xnb
 Content\Tile.xnb
 Content\MAP.txt

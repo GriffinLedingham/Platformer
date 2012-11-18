@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>ball.png</Source>
+      <Name>ball</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ball.xnb</Output>
+      <Time>2012-11-17T22:21:20-08:00</Time>
+    </Item>
+    <Item>
+      <Source>cloud.png</Source>
+      <Name>cloud</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cloud.xnb</Output>
+      <Time>2012-11-17T22:21:20-08:00</Time>
+    </Item>
+    <Item>
+      <Source>groundTile.png</Source>
+      <Name>groundTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTile.xnb</Output>
+      <Time>2012-11-17T22:21:20-08:00</Time>
+    </Item>
+    <Item>
+      <Source>cherry.png</Source>
+      <Name>cherry</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cherry.xnb</Output>
+      <Time>2012-11-17T22:21:20-08:00</Time>
+    </Item>
+    <Item>
+      <Source>ballsmall.png</Source>
+      <Name>ballsmall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall.xnb</Output>
+      <Time>2012-11-17T22:21:20-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Tile.png</Source>
+      <Name>Tile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tile.xnb</Output>
+      <Time>2012-11-17T22:21:20-08:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1Content\</RootDirectory>
+      <LoggerRootDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T13:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-11-16T13:57:52.7652647-08:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
