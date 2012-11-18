@@ -55,7 +55,7 @@ namespace WindowsGame1
             windowWidth = Window.ClientBounds.Width;
             windowHeight = Window.ClientBounds.Height - 37;
             MyCircle = new Circle(Content, spriteBatch);
-            for (int i = 0; i < (float)Math.Ceiling((double)800 / (double)43)-3; i++)
+            /*for (int i = 0; i < (float)Math.Ceiling((double)800 / (double)43)-3; i++)
             {
                 if (i == 6 || i ==7) continue;
                 surfaces.Add(new Surface(Content, spriteBatch, 43, 42, i*43,windowHeight));
@@ -71,6 +71,24 @@ namespace WindowsGame1
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 6, windowHeight - 42 * 4));
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 7, windowHeight - 42 * 4));
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 8, windowHeight - 42 * 4));
+
+            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 1, windowHeight - 42 * 6));*/
+
+            Level currentLevel = new Level(@"Content/MAP.txt");
+
+            for(int i =0;i<currentLevel.Grid.Count;i++)
+            {
+                for (int j = 0; j < Level.Width; j++)
+                {
+                    if (currentLevel.Grid[i][j])
+                    {
+                        surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j*43 - 43,i*42+42 ));
+                    }
+                }
+
+            }
+
+            
 
 
             // TODO: use this.Content to load your game content here
