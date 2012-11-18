@@ -99,7 +99,7 @@ namespace WindowsGame1
                         if (random.Next(0, 100) < 30)
                         {
 
-                            items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "cherry"));
+                            //items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "cherry"));
                             
                         }
                     }

@@ -71,12 +71,12 @@ namespace WindowsGame1
                 else if (s.Pos.X >= this.Pos.X + this.SpriteTexture.Width - collisionBuffer) returnVal[1] = CollisionType.right;
 
                 else returnVal[1] = CollisionType.none;
-
-
-
+/*
 
                 if (s.Pos.Y < this.Pos.Y + SpriteTexture.Height 
-                  && s.Pos.Y + s.scaledHeight > this.Pos.Y + SpriteTexture.Height) returnVal[2] = CollisionType.bottomCorner;
+                && s.Pos.Y + s.scaledHeight > this.Pos.Y + SpriteTexture.Height) returnVal[2] = CollisionType.topCorner;
+*/
+                if (s.Pos.X + s.scaledWidth > this.Pos.X && s.Pos.Y + s.scaledHeight > this.Pos.Y) returnVal[2] = CollisionType.topCorner;
 
                 else returnVal[2] = CollisionType.none;
 

@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ball.xnb</Output>
+      <Output>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ball.xnb</Output>
       <Time>2012-11-17T22:21:20-08:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cloud.xnb</Output>
+      <Output>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cloud.xnb</Output>
       <Time>2012-11-17T22:21:20-08:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTile.xnb</Output>
+      <Output>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTile.xnb</Output>
       <Time>2012-11-17T22:21:20-08:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cherry.xnb</Output>
+      <Output>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cherry.xnb</Output>
       <Time>2012-11-17T22:21:20-08:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall.xnb</Output>
+      <Output>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall.xnb</Output>
       <Time>2012-11-17T22:21:20-08:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tile.xnb</Output>
+      <Output>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tile.xnb</Output>
       <Time>2012-11-17T22:21:20-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
@@ -61,10 +61,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1Content\</RootDirectory>
-      <LoggerRootDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
-      <IntermediateDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

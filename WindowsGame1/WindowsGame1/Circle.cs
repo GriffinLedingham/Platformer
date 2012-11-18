@@ -59,7 +59,6 @@ namespace WindowsGame1
                 {
                     Game1.items[i].existing = false;
                     scale += 0.1f;
-                    //SpriteTexture = this.Content.Load<Texture2D>("ballsmall"
                 }
 
             }

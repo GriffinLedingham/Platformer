@@ -34,3 +34,16 @@ Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\obj\x86
 Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
 Z:\Documents\csharp\Projects\Platformer-master\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ball.xnb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cloud.xnb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTile.xnb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cherry.xnb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall.xnb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tile.xnb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\MAP.txt
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.pdb
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.csprojResolveAssemblyReference.cache
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
+C:\Users\pdem\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
