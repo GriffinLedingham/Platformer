@@ -19,3 +19,4 @@ C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Deb
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.pdb
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\MAP.txt
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cherry.xnb

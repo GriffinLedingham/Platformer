@@ -18,15 +18,19 @@ namespace WindowsGame1
         public Texture2D SpriteTexture;
         bool jumping = false;
         float Yacceleration = 0.0f;
+        public float scale = 1.0f;
+        public ContentManager Content;
+        public float scaledWidth, scaledHeight;
+        
 
         private int bounced = 0;
 
         public Circle(ContentManager Content, SpriteBatch spriteBatch)
         {
+            this.Content = Content;
             this.spriteBatch = spriteBatch;
             SpriteTexture = Content.Load<Texture2D>("ballsmall");
             Pos.Y = Game1.windowHeight - 38;
-
         }
 
         public void animate()
@@ -41,6 +45,18 @@ namespace WindowsGame1
 
         public void update()
         {
+            for (int i = 0; i < Game1.items.Count; i++)
+            {
+                if(Game1.items[i].Pos.X >= this.Pos.X && Game1.items[i].Pos.X +Game1.items[i].SpriteTexture.Width <= this.Pos.X + this.SpriteTexture.Width
+                    && Game1.items[i].Pos.Y >= this.Pos.Y && Game1.items[i].Pos.Y + Game1.items[i].SpriteTexture.Height <= this.Pos.Y + this.SpriteTexture.Height)
+                {
+                    Game1.items[i].existing = false;
+                    scale += 0.1f;
+                    SpriteTexture = this.Content.Load<Texture2D>("ballsmall"
+                }
+
+            }
+
             List<Surface> surfacesUnder = new List<Surface>();
             CollisionType collision = CollisionType.none;
             Surface collidedSurface = null;
@@ -212,7 +228,7 @@ namespace WindowsGame1
         public void draw()
         {
             //spriteBatch.Begin();
-            spriteBatch.Draw(SpriteTexture, Pos, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(SpriteTexture, Pos, null, Color.White, 0.0f, Vector2.Zero, this.scale, SpriteEffects.None, 0.0f);
             //spriteBatch.End();
         }
     

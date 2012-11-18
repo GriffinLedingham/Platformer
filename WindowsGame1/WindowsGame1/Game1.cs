@@ -20,7 +20,9 @@ namespace WindowsGame1
         SpriteBatch spriteBatch;
         Circle MyCircle;
         public static List<Surface> surfaces = new List<Surface>();
+        public static List<Item> items = new List<Item>();
         public static float camX,camY;
+        
 
         public static int windowHeight, windowWidth;
 
@@ -73,16 +75,23 @@ namespace WindowsGame1
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 8, windowHeight - 42 * 4));
 
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 1, windowHeight - 42 * 6));*/
-
+            
             Level currentLevel = new Level(@"Content/MAP.txt");
-
+            Random random = new Random();
             for(int i =0;i<currentLevel.Grid.Count;i++)
             {
                 for (int j = 0; j < Level.Width; j++)
                 {
                     if (currentLevel.Grid[i][j])
                     {
+                        
                         surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j*43 - 43,i*42+42 ));
+                        if (random.Next(0, 100) < 30)
+                        {
+
+                            items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "cherry"));
+                            
+                        }
                     }
                 }
 
@@ -168,6 +177,11 @@ namespace WindowsGame1
             for (int i = 0; i < surfaces.Count; i++)
             {
                 surfaces[i].draw();
+            }
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                items[i].spawn();
             }
 
             MyCircle.draw();
