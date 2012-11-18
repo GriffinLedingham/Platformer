@@ -78,14 +78,24 @@ namespace WindowsGame1
             
             Level currentLevel = new Level(@"Content/MAP.txt");
             Random random = new Random();
+
+            Random random2 = new Random(DateTime.Now.Millisecond);
+
+            
+
             for(int i =0;i<currentLevel.Grid.Count;i++)
             {
                 for (int j = 0; j < Level.Width; j++)
                 {
                     if (currentLevel.Grid[i][j])
                     {
-                        
-                        surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j*43 - 43,i*42+42 ));
+                        byte r = (byte)random2.Next(90, 255);
+                        byte g = (byte)random2.Next(90, 255);
+                        byte b = (byte)random2.Next(90, 255);
+
+                        Color tempCol;
+                        tempCol = new Color(r, g, b); 
+                        surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j*43 - 43,i*42+42, tempCol ));
                         if (random.Next(0, 100) < 30)
                         {
 
@@ -160,7 +170,7 @@ namespace WindowsGame1
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
             if (MyCircle.Pos.Y > windowHeight/2)
