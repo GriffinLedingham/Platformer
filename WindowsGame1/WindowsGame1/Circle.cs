@@ -21,6 +21,7 @@ namespace WindowsGame1
         public float scale = 1.0f;
         public ContentManager Content;
         public float scaledWidth, scaledHeight;
+        Vector2 oldPos;
         
         private int bounced = 0;
 
@@ -33,6 +34,9 @@ namespace WindowsGame1
             jumping = true;
             scaledHeight = SpriteTexture.Height * scale;
             scaledWidth = SpriteTexture.Width * scale;
+            Pos.X = 42;
+            oldPos = Pos;
+
         }
 
         public void animate()
@@ -47,6 +51,15 @@ namespace WindowsGame1
 
         public void update()
         {
+
+            if (oldPos.X> Pos.X-1 && oldPos.X<Pos.X+1 && oldPos.Y > Pos.Y-1 && oldPos.Y<Pos.Y+1 && (Velocity.X !=0) && scale != 1.0f)
+            {
+                Game1.gameOver = true;
+            }
+            else
+            {
+                Game1.gameOver = false;
+            }
             
             scaledHeight = SpriteTexture.Height * scale;
             scaledWidth = SpriteTexture.Width * scale;
@@ -57,8 +70,22 @@ namespace WindowsGame1
                 if (Game1.items[i].Pos.X >= this.Pos.X - (this.scaledWidth - this.SpriteTexture.Width)/2 && Game1.items[i].Pos.X + Game1.items[i].SpriteTexture.Width <= this.Pos.X + (this.scaledWidth - this.SpriteTexture.Width)/2 + this.scaledWidth
                     && Game1.items[i].Pos.Y >= this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height)/2 && Game1.items[i].Pos.Y + Game1.items[i].SpriteTexture.Height <= this.Pos.Y + (this.scaledHeight - this.SpriteTexture.Height)/2 + this.scaledHeight && Game1.items[i].existing)
                 {
-                    Game1.items[i].existing = false;
-                    scale += 0.1f;
+                    if (Game1.items[i].type == "bug")
+                    {
+                        Game1.items[i].existing = false;
+                        scale += 0.1f;
+                    }
+                    else if (Game1.items[i].type == "cherry")
+                    {
+                        Game1.items[i].existing = false;
+                        Game1.score += 10;
+                    }
+                    else if (Game1.items[i].type == "star")
+                    {
+                        Game1.items[i].existing = false;
+                        Game1.bgColor = Color.Yellow;
+
+                    }
                 }
 
             }
@@ -68,13 +95,11 @@ namespace WindowsGame1
             Surface collidedSurface = null;
             int topCollided = 0;
             bool collisionTop = false;
+            bool collisionBottom = false;
+            int collisionBottomHeight = 0;
+            bool collisionTopCorner = false;
             for (int i = 0; i < Game1.surfaces.Count; i++)
             {
-
-                if (Game1.surfaces[i].CheckCollision(this)[0] == CollisionType.bottom)
-                {
-                    int k = 0;
-                }
 
                 if (Game1.surfaces[i].CheckCollision(this)[0] == CollisionType.top)
                 {
@@ -89,7 +114,7 @@ namespace WindowsGame1
                     this.Pos.Y = Game1.surfaces[i].Pos.Y - this.scaledHeight;
                     Velocity.Y = 0;
                     Yacceleration = 0;
-
+                    collisionTopCorner = true;
                     collision = CollisionType.topCorner;
 
                     jumping = false;
@@ -99,9 +124,16 @@ namespace WindowsGame1
                 {
                     collision = Game1.surfaces[i].CheckCollision(this)[1];
                     collidedSurface = Game1.surfaces[i];
+
+                    if (Game1.surfaces[i].CheckCollision(this)[0] == CollisionType.bottom)
+                    {
+                        collisionBottom = true;
+                        collisionBottomHeight = Game1.surfaces[i].Pos.Y;
+                    }
+
                 }
 
-                if (Game1.surfaces[i].Pos.X <= this.Pos.X + scaledWidth / 2.0f && Game1.surfaces[i].Pos.X + Game1.surfaces[i].SpriteTexture.Width >= this.Pos.X + scaledWidth / 2.0f)
+                if (Game1.surfaces[i].Pos.X <= this.Pos.X - (this.scaledWidth - this.SpriteTexture.Width) / 2.0f + scaledWidth  /*/ 2.0f*/ && Game1.surfaces[i].Pos.X + Game1.surfaces[i].SpriteTexture.Width >= this.Pos.X - (this.scaledWidth - this.SpriteTexture.Width) / 2 + scaledWidth  /*/ 2.0f*/)
                 {
                     surfacesUnder.Add(Game1.surfaces[i]);
                 }
@@ -121,20 +153,24 @@ namespace WindowsGame1
                 if (closest == null)
                 {
                     //if(surf.pos.Y >= this.Pos.Y + this.SpriteTextured.Height)
-                    if (surf.Pos.Y >= this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight)
+                    if (surf.Pos.Y >= this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) / 2.0f + this.scaledHeight || this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) / 2.0f + this.scaledHeight <= surf.Pos.Y + surf.SpriteTexture.Height)
                         closest = surf;
                 }
-                else if (surf.Pos.Y >= this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight && surf.Pos.Y <= closest.Pos.Y)
+                else if ((surf.Pos.Y >= this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) / 2.0f + this.scaledHeight || this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) / 2.0f + this.scaledHeight <= surf.Pos.Y + surf.SpriteTexture.Height) && surf.Pos.Y <= closest.Pos.Y)
                 {
                     closest = surf;
                 }
 
             }
-            if (closest == null) jumping = true;
+            if (closest == null)
+            {
+                jumping = true;
+
+            }
             else if (closest.Pos.Y > this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + scaledHeight) jumping = true;
             if (jumping)
             {
-                if (closest == null || (this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight <= closest.Pos.Y))//(Pos.Y + scaledHeight <= closest.Pos.Y))
+                if (closest == null || (this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) / 2.0f + this.scaledHeight <= closest.Pos.Y))//(Pos.Y + scaledHeight <= closest.Pos.Y))
                 {
                     Velocity.Y -= Yacceleration;
                     Yacceleration -= 0.1f;
@@ -154,52 +190,78 @@ namespace WindowsGame1
                 this.Pos.Y = topCollided + 5;
             }
 
-            
+
 
             if (collision == CollisionType.none)
             {
-                Pos.X += Velocity.X;
-                Pos.Y += Velocity.Y;
+                if (Pos.X <= Game1.windowWidth && Pos.X >= 0)
+                {
+                    Pos.X += Velocity.X;
+                    Pos.Y += Velocity.Y;
+                }
+                else
+                {
+                    //Pos.X += 30;
+                    Pos.X -= Velocity.X;
+                    Velocity.X = 0;
+                    jumping = true;
+                    //Pos.Y += Velocity.Y;
+
+                }
             }
-            else if(collision == CollisionType.right || collision == CollisionType.left)
+            else if (collision == CollisionType.right || collision == CollisionType.left)
             {
                 Velocity.X *= 0;
-                if(!collisionTop)
-                this.Pos.X = collision == CollisionType.left ? collidedSurface.Pos.X - this.scaledWidth - 3 : collidedSurface.Pos.X + collidedSurface.SpriteTexture.Width + 3;
+                if (!collisionTop && !collisionTopCorner)
+                    this.Pos.X = collision == CollisionType.left ? collidedSurface.Pos.X - this.scaledWidth - 3 : collidedSurface.Pos.X + collidedSurface.SpriteTexture.Width + 3;
             }
 
-            if (closest != null && this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) + this.scaledHeight > closest.Pos.Y)
+            if (closest != null && this.Pos.Y - (this.scaledHeight - this.SpriteTexture.Height) / 2.0f + this.scaledHeight > closest.Pos.Y)
             {
                 this.Pos.Y = closest.Pos.Y - scaledHeight;
                 jumping = false;
                 Velocity.Y = 0;
                 Yacceleration = 0;
             }
+            else
+            {
+                int i = 0;
+            }
+
+            if (DateTime.Now.Second > Game1.checkTime+10)
+            {
+                oldPos.X = Pos.X;
+                oldPos.Y = Pos.Y;
+                Game1.checkTime = DateTime.Now.Second;
+
+            }
 
         }
 
 
 
+
         public void keyPressed(Keys pressed)
         {
+                if (pressed == Keys.Left)
+                {
+                    Velocity.X -= 0.1f;
+                }
+                else if (pressed == Keys.Right)
+                {
+                    Velocity.X += 0.1f;
+                }
+            
 
-            if (pressed == Keys.Left)
+            if (Velocity.X < -3.0f)
             {
-                Velocity.X -= 0.1f;
+                Velocity.X = -3.0f;
             }
-            else if (pressed == Keys.Right)
+            if (Velocity.X > 3.0f)
             {
-                Velocity.X += 0.1f;
+                Velocity.X = 3.0f;
             }
 
-            if (Velocity.X < -5.0f)
-            {
-                Velocity.X = -5.0f;
-            }
-            if (Velocity.X > 5.0f)
-            {
-                Velocity.X = 5.0f;
-            }
 
             else if (pressed == Keys.Up)
             {

@@ -62,6 +62,9 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
+*.xnb
+*.exe
+*.pdb
 
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/

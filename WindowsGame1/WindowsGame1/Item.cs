@@ -14,6 +14,7 @@ namespace WindowsGame1
         public Texture2D SpriteTexture;
         public SpriteBatch spriteBatch;
         public bool existing = true;
+        public string type;
 
 
         public Item(ContentManager Content, SpriteBatch spriteBatch, int xPos, int yPos, string spriteName)
@@ -22,6 +23,7 @@ namespace WindowsGame1
             Pos.Y = yPos;
             SpriteTexture = Content.Load<Texture2D>(spriteName);
             this.spriteBatch = spriteBatch;
+            type = spriteName;
 
         }
 

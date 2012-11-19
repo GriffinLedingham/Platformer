@@ -8,7 +8,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ball.xnb</Output>
-      <Time>2012-11-16T15:17:11.8004271-08:00</Time>
+      <Time>2012-11-18T13:55:12-08:00</Time>
     </Item>
     <Item>
       <Source>cloud.png</Source>
@@ -17,7 +17,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cloud.xnb</Output>
-      <Time>2012-11-16T16:40:29.7761954-08:00</Time>
+      <Time>2012-11-18T13:55:12-08:00</Time>
     </Item>
     <Item>
       <Source>groundTile.png</Source>
@@ -26,7 +26,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTile.xnb</Output>
-      <Time>2012-11-16T21:10:00.3993961-08:00</Time>
+      <Time>2012-11-18T13:55:12-08:00</Time>
     </Item>
     <Item>
       <Source>ballsmall.png</Source>
@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall.xnb</Output>
-      <Time>2012-11-17T21:34:55.3985568-08:00</Time>
+      <Time>2012-11-18T13:55:12-08:00</Time>
     </Item>
     <Item>
       <Source>cherry.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cherry.xnb</Output>
-      <Time>2012-11-17T19:46:17.6807719-08:00</Time>
+      <Time>2012-11-18T13:55:12-08:00</Time>
     </Item>
     <Item>
       <Source>Tile.png</Source>
@@ -53,7 +53,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tile.xnb</Output>
-      <Time>2012-11-17T22:15:47.8067118-08:00</Time>
+      <Time>2012-11-18T13:55:12-08:00</Time>
+    </Item>
+    <Item>
+      <Source>bug.png</Source>
+      <Name>bug</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bug.xnb</Output>
+      <Time>2012-11-18T15:38:56.131726-08:00</Time>
+    </Item>
+    <Item>
+      <Source>star.png</Source>
+      <Name>star</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\star.xnb</Output>
+      <Time>2012-11-18T17:26:05.9264252-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

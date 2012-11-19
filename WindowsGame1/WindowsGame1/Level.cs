@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    class Level
+    public class Level
     {
         public static int Width = 21;
         public List<bool[]> Grid;
@@ -32,6 +32,42 @@ namespace WindowsGame1
                 Grid.Add(row);
                 
             }
+
+            /*Random random = new Random();
+            for (int i = 0; i < 13;i++ )
+            {
+                bool[] row = new bool[21];
+                row[0] = true;
+                row[20] = true;
+                if (i != 12)
+                {
+
+                    for (int j = 1; j < 20; j++)
+                    {
+                        if (random.Next(0, 100) < 10)
+                        {
+                            row[j] = true;
+                        }
+                        else
+                        {
+                            row[j] = false;
+                        }
+                    }
+                }
+                else
+                {
+                    for (int j = 1; j < 20; j++)
+                    {
+                        row[j] = true;
+                    }
+                }
+
+                //Grid.Insert(0,row);
+                Grid.Add(row);
+
+            }*/
+
+
 
             reader.Close();
         }
