@@ -21,14 +21,14 @@ namespace WindowsGame1
         Circle MyCircle;
         public static List<Surface> surfaces = new List<Surface>();
         public static List<Item> items = new List<Item>();
-        public static float camX,camY;
+        public static float camX, camY;
         public Level currentLevel;
-        public static int score=0;
+        public static int score = 0;
         public static bool gameOver = false;
         public static int checkTime;
         public static Color bgColor = Color.Black;
         public static bool spawnedStar = false;
-        
+
 
         public static int windowHeight, windowWidth;
 
@@ -59,7 +59,7 @@ namespace WindowsGame1
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             windowWidth = Window.ClientBounds.Width;
             windowHeight = Window.ClientBounds.Height - 37;
             MyCircle = new Circle(Content, spriteBatch);
@@ -82,44 +82,44 @@ namespace WindowsGame1
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 8, windowHeight - 42 * 4));
 
             surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 1, windowHeight - 42 * 6));*/
-            
+
             currentLevel = new Level(@"Content/MAP.txt");
             Random random = new Random(DateTime.Now.Millisecond);
 
             Random random2 = new Random(DateTime.Now.Millisecond);
 
-            
 
-            for(int i =0;i<currentLevel.Grid.Count;i++)
+
+            for (int i = 0; i < currentLevel.Grid.Count; i++)
             {
                 for (int j = 0; j < Level.Width; j++)
                 {
                     if (currentLevel.Grid[i][j])
                     {
-                        byte r = (byte)random2.Next( 0, 255);
+                        byte r = (byte)random2.Next(0, 255);
                         byte g = (byte)random2.Next(0, 255);
                         byte b = (byte)random2.Next(0, 255);
 
                         Color tempCol;
-                        tempCol = new Color(r, g, b); 
-                        surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j*43,i*42, tempCol ));
-                        
+                        tempCol = new Color(r, g, b);
+                        surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j * 43, i * 42, tempCol));
+
                         if (random.Next(0, 100) < 10)
                         {
 
                             items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "bug"));
-                            
+
                         }
                         else if (random.Next(0, 100) < 30)
                         {
-                           /* if (i<5 && i>2 && spawnedStar == false)
-                            {
-                                items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "star"));
-                                spawnedStar = true;
-                            }
-                            else*/
-                           // {
-                                items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "cherry"));
+                            /* if (i<5 && i>2 && spawnedStar == false)
+                             {
+                                 items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "star"));
+                                 spawnedStar = true;
+                             }
+                             else*/
+                            // {
+                            items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "cherry"));
                             //}
                         }
 
@@ -127,32 +127,28 @@ namespace WindowsGame1
                 }
 
             }
-           // if (spawnedStar == false)
-            //{
-            int starX = random.Next(3,Level.Width-1);
+            int starX = (random.Next(2, Level.Width - 1));
             while (true)
             {
-                if (currentLevel.Grid[8][starX] == false && currentLevel.Grid[9][starX] == true)
+                if (currentLevel.Grid[0][starX] == false && currentLevel.Grid[1][starX] == true)
                 {
                     break;
                 }
                 else
                 {
-                    starX = random.Next(3, Level.Width - 1);
+                    starX = random.Next(2, Level.Width - 1);
                 }
 
             }
 
-                items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4),  8* 42 +12, "star"));
-                //spawnedStar = true;
-            //}
+            items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), 0 * 42 + 12, "star"));
 
 
 
 
 
 
-            
+
 
 
             // TODO: use this.Content to load your game content here
