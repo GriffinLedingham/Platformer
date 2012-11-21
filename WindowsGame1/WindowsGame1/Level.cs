@@ -18,7 +18,7 @@ namespace WindowsGame1
             Grid = new List<bool[]>();
             string line = string.Empty;
 
-            while ((line = reader.ReadLine()) != null)
+            /*while ((line = reader.ReadLine()) != null)
             {
                 bool[] row = new bool[21];
                 row[0] = true;
@@ -31,20 +31,19 @@ namespace WindowsGame1
                 //Grid.Insert(0,row);
                 Grid.Add(row);
                 
-            }
+            }*/
 
-            /*Random random = new Random();
-            for (int i = 0; i < 13;i++ )
+            Random random = new Random();
+            for (int i = 0; i < 13;i++ )//height
             {
                 bool[] row = new bool[21];
-                row[0] = true;
-                row[20] = true;
+                
                 if (i != 12)
                 {
 
                     for (int j = 1; j < 20; j++)
                     {
-                        if (random.Next(0, 100) < 10)
+                        if (random.Next(0, 100) < 20)
                         {
                             row[j] = true;
                         }
@@ -62,10 +61,13 @@ namespace WindowsGame1
                     }
                 }
 
+                row[0] = true;
+                row[18] = true;
+
                 //Grid.Insert(0,row);
                 Grid.Add(row);
 
-            }*/
+            }
 
 
 

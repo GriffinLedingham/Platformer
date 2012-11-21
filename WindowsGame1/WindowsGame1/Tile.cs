@@ -55,16 +55,38 @@ namespace WindowsGame1
 
         public Color tileColor;
 
+        public int gridX, gridY;
 
-        public Surface(ContentManager Content, SpriteBatch spriteBatch, int width, int height, int xStart, int yStart, Color tileColor)
+
+        public Surface(ContentManager Content, SpriteBatch spriteBatch, int width, int height, int xStart, int yStart,int gridX,int gridY, Color tileColor, int random, bool filler)
         {
 
 
 
             this.spriteBatch = spriteBatch;
-
-
-            SpriteTexture = Content.Load<Texture2D>("Tile");
+            if (!filler)
+            {
+                if (gridY == Game1.currentLevel.Grid.Count - 1)
+                {
+                    if (random < 49)
+                    {
+                        SpriteTexture = Content.Load<Texture2D>("groundTileNew");
+                    }
+                    else
+                    {
+                        SpriteTexture = Content.Load<Texture2D>("groundTileNewFlip");
+                    }
+                }
+                else
+                {
+                    SpriteTexture = Content.Load<Texture2D>("Tile");
+                }
+            }
+            else
+            {
+                    SpriteTexture = Content.Load<Texture2D>("dirtTile");
+            }
+            
 
 
             this.Pos.Height = height;
@@ -81,6 +103,9 @@ namespace WindowsGame1
 
             this.tileColor = tileColor;
 
+            this.gridX = gridX;
+            this.gridY = gridY;
+
         }
 
 
@@ -93,7 +118,8 @@ namespace WindowsGame1
 
         public void draw()
         {
-            spriteBatch.Draw(SpriteTexture, Pos, tileColor);//Color.White);
+
+            spriteBatch.Draw(SpriteTexture, Pos, Color.White);//tileColor);//Color.White);
 
         }
 

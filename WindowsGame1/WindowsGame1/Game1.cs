@@ -22,11 +22,11 @@ namespace WindowsGame1
         public static List<Surface> surfaces = new List<Surface>();
         public static List<Item> items = new List<Item>();
         public static float camX, camY;
-        public Level currentLevel;
+        public static Level currentLevel;
         public static int score = 0;
         public static bool gameOver = false;
         public static int checkTime;
-        public static Color bgColor = Color.Black;
+        public static Color bgColor = Color.SkyBlue;
         public static bool spawnedStar = false;
 
 
@@ -102,37 +102,46 @@ namespace WindowsGame1
 
                         Color tempCol;
                         tempCol = new Color(r, g, b);
-                        surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j * 43, i * 42, tempCol));
-
-                        if (random.Next(0, 100) < 10)
+                        Random random3 = new Random(DateTime.Now.Millisecond);
+                        int temp = random.Next(0, 100);
+                        surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j * 43, i * 42, j, i, tempCol, temp, false));
+                        if (i == currentLevel.Grid.Count - 1)
                         {
-
-                            items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "bug"));
-
+                            for (int k = 1; k < 4; k++)
+                            {
+                                surfaces.Add(new Surface(Content, spriteBatch, 43, 42, j * 43, (i + k) * 42, j, i, tempCol, temp, true));
+                            }
                         }
-                        else if (random.Next(0, 100) < 30)
+                    }
+                    else
+                    {
+
+                        if (random.Next(0, 100) < 10 && i != currentLevel.Grid.Count - 1 && i > 0)
                         {
-                            /* if (i<5 && i>2 && spawnedStar == false)
-                             {
-                                 items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "star"));
-                                 spawnedStar = true;
-                             }
-                             else*/
-                            // {
-                            items.Add(new Item(Content, spriteBatch, j * 43 - 43 + (43 / 4), i * 42 + 42 - 30, "cherry"));
-                            //}
+                            if (currentLevel.Grid[i][j] == false && currentLevel.Grid[i + 1][j] == true)
+                            {
+                                items.Add(new Item(Content, spriteBatch, j * 43 + (43 / 4), i * 42 + 12, "bug"));
+                            }
                         }
-
+                        else if (random.Next(0, 100) < 30 && i != currentLevel.Grid.Count - 1 && i > 0)
+                        {
+                            if (currentLevel.Grid[i][j] == false && currentLevel.Grid[i + 1][j] == true)
+                            {
+                                items.Add(new Item(Content, spriteBatch, j * 43 + (43 / 4), i * 42 + 12, "cherry"));
+                            }
+                        }
                     }
                 }
 
             }
             int starX = (random.Next(2, Level.Width - 1));
-            while (true)
+            while (!spawnedStar)
             {
-                if (currentLevel.Grid[0][starX] == false && currentLevel.Grid[1][starX] == true)
+                if (currentLevel.Grid[8][starX] == false && currentLevel.Grid[9][starX] == true)
                 {
-                    break;
+                    items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), 8 * 42 + 12, "star"));
+                    spawnedStar = true;
+                    //break;
                 }
                 else
                 {
@@ -141,7 +150,7 @@ namespace WindowsGame1
 
             }
 
-            items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), 0 * 42 + 12, "star"));
+            //items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), 8 * 42 + 12, "star"));
 
 
 

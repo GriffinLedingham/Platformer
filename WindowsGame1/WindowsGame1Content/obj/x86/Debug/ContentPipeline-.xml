@@ -73,6 +73,33 @@
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\star.xnb</Output>
       <Time>2012-11-18T17:26:05.9264252-08:00</Time>
     </Item>
+    <Item>
+      <Source>groundTileNew.png</Source>
+      <Name>groundTileNew</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTileNew.xnb</Output>
+      <Time>2012-11-20T17:52:46.5961891-08:00</Time>
+    </Item>
+    <Item>
+      <Source>groundTileNewFlip.png</Source>
+      <Name>groundTileNewFlip</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTileNewFlip.xnb</Output>
+      <Time>2012-11-20T17:53:01.0927957-08:00</Time>
+    </Item>
+    <Item>
+      <Source>dirtTile.png</Source>
+      <Name>dirtTile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\dirtTile.xnb</Output>
+      <Time>2012-11-20T17:39:23.7023903-08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID Null="true" />
