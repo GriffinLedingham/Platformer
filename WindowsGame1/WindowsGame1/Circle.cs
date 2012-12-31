@@ -120,7 +120,7 @@ namespace WindowsGame1
             if (jumping == true)
             {
                 Velocity.Y -= Yacceleration;
-                Yacceleration -= 0.1f;
+                Yacceleration -= 0.09f;
             }
 
             Pos.Y += Velocity.Y;

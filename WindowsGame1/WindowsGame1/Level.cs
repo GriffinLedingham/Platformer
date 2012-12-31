@@ -14,7 +14,7 @@ namespace WindowsGame1
 
         public Level(string filename)
         {
-            StreamReader reader = new StreamReader(filename);
+            /*StreamReader reader = new StreamReader(filename);
             Grid = new List<bool[]>();
             string line = string.Empty;
 
@@ -31,6 +31,27 @@ namespace WindowsGame1
                 //Grid.Insert(0,row);
                 Grid.Add(row);
                 
+            }*/
+
+            StreamReader reader = new StreamReader(filename);
+            Grid = new List<bool[]>();
+            string line = string.Empty;
+            line = reader.ReadLine();
+            int levelLength = int.Parse(line);
+            Width = levelLength;
+            while ((line = reader.ReadLine()) != null)
+            {
+                bool[] row = new bool[levelLength];
+                row[0] = true;
+                row[levelLength-1] = true;
+                for (int i = 1; i < levelLength-1; i++)
+                {
+                    row[i] = (line[i - 1] == '1' ? true : false);
+                }
+
+                //Grid.Insert(0,row);
+                Grid.Add(row);
+
             }
 
             /*Random random = new Random();

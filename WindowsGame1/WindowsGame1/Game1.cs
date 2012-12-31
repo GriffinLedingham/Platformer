@@ -246,7 +246,16 @@ namespace WindowsGame1
                 {
                     camY = -MyCircle.Pos.Y + windowHeight / 2.0f;
                 }
-                Vector3 transVector = new Vector3(0.0f, camY - 10 * currentLevel.Grid.Count, 0.0f);
+
+                if (MyCircle.Pos.X < windowWidth / 2)
+                {
+                    camX = 0;
+                }
+                else
+                {
+                    camX = -MyCircle.Pos.X + windowWidth / 2.0f;
+                }
+                Vector3 transVector = new Vector3(camX, camY - 10 * currentLevel.Grid.Count, 0.0f);
                 spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, Matrix.CreateTranslation(transVector));
                 //MyLevel1.draw()
                 for (int i = 0; i < surfaces.Count; i++)
