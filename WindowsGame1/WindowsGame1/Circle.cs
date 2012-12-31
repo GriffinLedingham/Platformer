@@ -30,9 +30,20 @@ namespace WindowsGame1
             SpriteTexture = Content.Load<Texture2D>("ballsmall");
             Pos.Y = Game1.windowHeight - 120;
             jumping = true;
-            Pos.X = 47;
+            Pos.X = 49;
             oldPos = Pos;
 
+            for (int i = 0; i < Game1.surfaces.Count; i++)
+            {
+                if (Game1.surfaces[i].CheckCollision(this) != 0)
+                {
+                    while (Game1.surfaces[i].CheckCollision(this) != 0)
+                    {
+                        Pos.Y -= 1;
+                    }
+                }
+                //break;
+            }
         }
 
         public void animate()
@@ -63,7 +74,7 @@ namespace WindowsGame1
                     else if (Game1.items[i].type == "star")
                     {
                         Game1.items[i].existing = false;
-                        Game1.bgColor = Color.Yellow;
+                        //Game1.bgColor = Color.Yellow;
 
                     }
                 }

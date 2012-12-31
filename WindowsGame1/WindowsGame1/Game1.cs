@@ -143,6 +143,8 @@ namespace WindowsGame1
 
             }
 
+            MyCircle = new Circle(Content, spriteBatch);
+
             //items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), 8 * 42 + 12, "star"));
 
 
