@@ -116,14 +116,7 @@ namespace WindowsGame1
                     else
                     {
 
-                        if (random.Next(0, 100) < 10 && i != currentLevel.Grid.Count - 1 && i > 0)
-                        {
-                            if (currentLevel.Grid[i][j] == false && currentLevel.Grid[i + 1][j] == true)
-                            {
-                                items.Add(new Item(Content, spriteBatch, j * 43 + (43 / 4), i * 42 + 12, "bug"));
-                            }
-                        }
-                        else if (random.Next(0, 100) < 30 && i != currentLevel.Grid.Count - 1 && i > 0)
+                        if (random.Next(0, 100) < 30 && i != currentLevel.Grid.Count - 1 && i > 0)
                         {
                             if (currentLevel.Grid[i][j] == false && currentLevel.Grid[i + 1][j] == true)
                             {
@@ -192,7 +185,7 @@ namespace WindowsGame1
             {
                 MyCircle.keyPressed(Keys.Left);
             }
-            if (keyState.IsKeyDown(Keys.Right))
+            else if (keyState.IsKeyDown(Keys.Right))
             {
                 MyCircle.keyPressed(Keys.Right);
             }
@@ -205,6 +198,7 @@ namespace WindowsGame1
                 //this.Run();
                 //Initialize();
             }
+
 
             /*if (keyState.IsKeyDown(Keys.Down))
             {
