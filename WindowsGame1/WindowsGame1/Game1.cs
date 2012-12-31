@@ -130,9 +130,9 @@ namespace WindowsGame1
             int starX = (random.Next(2, Level.Width - 1));
             while (!spawnedStar)
             {
-                if (currentLevel.Grid[8][starX] == false && currentLevel.Grid[9][starX] == true)
+                if (currentLevel.Grid[Level.Height-5][starX] == false && currentLevel.Grid[Level.Height-4][starX] == true)
                 {
-                    items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), 8 * 42 + 12, "star"));
+                    items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), (Level.Height-5) * 42 + 12, "star"));
                     spawnedStar = true;
                     //break;
                 }

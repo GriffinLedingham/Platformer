@@ -69,13 +69,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cherry.png">
-      <Name>cherry</Name>
+    <Compile Include="star.png">
+      <Name>star</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Tile.png">
       <Name>Tile</Name>
       <Importer>TextureImporter</Importer>
@@ -85,13 +83,6 @@
   <ItemGroup>
     <Compile Include="bug.png">
       <Name>bug</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="star.png">
-      <Name>star</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -127,6 +118,13 @@
   <ItemGroup>
     <Compile Include="ballsmall2.png">
       <Name>ballsmall2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cherry.png">
+      <Name>cherry</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
