@@ -62,13 +62,11 @@ namespace WindowsGame1
         public void draw()
         {
 
-            spriteBatch.Draw(SpriteTexture, Pos, Color.White);//tileColor);//Color.White);
-
+            spriteBatch.Draw(SpriteTexture, Pos, Color.White);
         }
 
-        public int CheckCollision(Circle s)
+        public int CheckCollision(Player s)
         {
-            //int retVal = 0;
 
             float leftA, leftB;
             float rightA, rightB;
@@ -105,7 +103,6 @@ namespace WindowsGame1
                 return 0;
             }
 
-            //If none of the sides from A are outside B
             return 1;
 
         }

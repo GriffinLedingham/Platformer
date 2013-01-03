@@ -9,10 +9,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class Circle
-    {int currentFrame = 0;
+    public class Player
+    {
+        int currentFrame = 0;
         public Vector2 Pos;
-        public static Vector2 Velocity;
+        public Vector2 Velocity;
         public SpriteBatch spriteBatch;
         public Texture2D SpriteTexture;
         bool jumping = true;
@@ -22,8 +23,9 @@ namespace WindowsGame1
         int frameSkip = 0;
         bool stillFrame = true;
         public bool horizDown = false;
+        public bool starHit = false;
 
-        public Circle(ContentManager Content, SpriteBatch spriteBatch)
+        public Player(ContentManager Content, SpriteBatch spriteBatch)
         {
             this.Content = Content;
             this.spriteBatch = spriteBatch;
@@ -33,12 +35,12 @@ namespace WindowsGame1
             Pos.X = 49;
             oldPos = Pos;
 
-            for (int i = Game1.surfaces.Count-1; i >=0 ; i--)
+            for (int i = Game1.surfaces.Count - 1; i >= 0; i--)
             {
-                    while (Game1.surfaces[i].CheckCollision(this) != 0)
-                    {
-                        Pos.Y -= 4;
-                    }
+                while (Game1.surfaces[i].CheckCollision(this) != 0)
+                {
+                    Pos.Y -= 4;
+                }
             }
         }
 
@@ -57,10 +59,10 @@ namespace WindowsGame1
             {
                 frameSkip += 1;
             }
-            
+
             for (int i = 0; i < Game1.items.Count; i++)
             {
-                if(CheckCollision(this,Game1.items[i]))
+                if (CheckCollision(this, Game1.items[i]))
                 {
                     if (Game1.items[i].type == "cherry")
                     {
@@ -71,6 +73,7 @@ namespace WindowsGame1
                     {
                         Game1.items[i].existing = false;
                         Game1.bgColor = Color.Blue;
+                        starHit = true;
 
                     }
                 }
@@ -81,7 +84,7 @@ namespace WindowsGame1
             bool noHit = true;
             for (int i = 0; i < Game1.surfaces.Count; i++)
             {
-                if (Game1.surfaces[i].CheckCollision(this) !=0)
+                if (Game1.surfaces[i].CheckCollision(this) != 0)
                 {
                     noHit = false;
                 }
@@ -91,12 +94,12 @@ namespace WindowsGame1
             {
                 jumping = true;
             }
-            
+
             Pos.X += Velocity.X;
 
             for (int i = 0; i < Game1.surfaces.Count; i++)
             {
-                if (Game1.surfaces[i].CheckCollision(this) !=0)
+                if (Game1.surfaces[i].CheckCollision(this) != 0)
                 {
                     Pos.X -= Velocity.X;
                     Velocity.X = 0;
@@ -117,7 +120,7 @@ namespace WindowsGame1
                 sign = 0;
             }
 
-            Velocity.X -= .1f*sign;
+            Velocity.X -= .1f * sign;
 
             if (Velocity.X > -.1 && Velocity.X < .1)
             {
@@ -127,7 +130,7 @@ namespace WindowsGame1
             if (jumping == true)
             {
                 Velocity.Y -= Yacceleration;
-                Yacceleration -= 0.09f;
+                Yacceleration -= 0.05f;
             }
 
             Pos.Y += Velocity.Y;
@@ -137,7 +140,7 @@ namespace WindowsGame1
                 if (Game1.surfaces[i].CheckCollision(this) != 0)
                 {
                     Pos.Y -= Velocity.Y;
-                   
+
 
                     //Yacceleration = 0.0f;
                     if (Velocity.Y > 0)
@@ -153,7 +156,7 @@ namespace WindowsGame1
                     }
                     else
                     {
-                        Velocity.Y = -Velocity.Y/2;
+                        Velocity.Y = -Velocity.Y / 2;
                     }
 
                     //jumping = false;
@@ -178,20 +181,20 @@ namespace WindowsGame1
                 frameSkip = 0;
             }
 
-            
+
         }
 
         public void keyPressed(Keys pressed)
         {
-                if (pressed == Keys.Left)
-                {
-                    Velocity.X -= 0.2f;
-                }
-                if (pressed == Keys.Right)
-                {
-                    Velocity.X += 0.2f;
-                }
-            
+            if (pressed == Keys.Left)
+            {
+                Velocity.X -= 0.2f;
+            }
+            if (pressed == Keys.Right)
+            {
+                Velocity.X += 0.2f;
+            }
+
 
             if (Velocity.X < -3.0f)
             {
@@ -213,7 +216,7 @@ namespace WindowsGame1
             }
         }
 
-        public bool CheckCollision(Circle s, Item i)
+        public bool CheckCollision(Player s, Item i)
         {
             float leftA, leftB;
             float rightA, rightB;
@@ -269,7 +272,20 @@ namespace WindowsGame1
             }
             //spriteBatch.End();
         }
-    
+
+        public bool starStatus()
+        {
+            if (starHit)
+            {
+                starHit = false;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
     }
 }

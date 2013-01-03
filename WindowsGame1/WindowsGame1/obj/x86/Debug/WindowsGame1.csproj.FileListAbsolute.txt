@@ -53,3 +53,7 @@ C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Deb
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\groundTileNewFlip.xnb
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\dirtTile.xnb
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall2.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.exe.manifest
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.application
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe.manifest
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.application
