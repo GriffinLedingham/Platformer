@@ -24,6 +24,7 @@ namespace WindowsGame1
         bool stillFrame = true;
         public bool horizDown = false;
         public bool starHit = false;
+        bool falling = true;
 
         public Player(ContentManager Content, SpriteBatch spriteBatch)
         {
@@ -51,6 +52,7 @@ namespace WindowsGame1
 
         public void update()
         {
+            Console.WriteLine(Velocity.Y);
             if (Velocity.X == 0.0f)
             {
                 frameSkip = 0;
@@ -127,10 +129,15 @@ namespace WindowsGame1
                 Velocity.X = 0;
             }
 
+            if (Velocity.Y > 4)
+            {
+                Velocity.Y = 4.0f;
+            }
+
             if (jumping == true)
             {
                 Velocity.Y -= Yacceleration;
-                Yacceleration -= 0.05f;
+                    Yacceleration -= 0.09f;
             }
 
             Pos.Y += Velocity.Y;
