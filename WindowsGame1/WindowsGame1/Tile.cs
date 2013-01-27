@@ -16,6 +16,7 @@ namespace WindowsGame1
         public SpriteBatch spriteBatch;
         public Texture2D SpriteTexture;
         public Rectangle Pos;
+        public Vector2 PosVec;
         public int tileXPos;
         public Color tileColor;
         public int gridX, gridY;
@@ -62,7 +63,14 @@ namespace WindowsGame1
         public void draw()
         {
 
-            spriteBatch.Draw(SpriteTexture, Pos, Color.White);
+            //spriteBatch.Draw(SpriteTexture, Pos, Color.White);
+            PosVec.X = Pos.X;
+            PosVec.Y = Pos.Y;
+
+            spriteBatch.Draw(SpriteTexture, PosVec, null, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
+
+
+
         }
 
         public int CheckCollision(Player s)

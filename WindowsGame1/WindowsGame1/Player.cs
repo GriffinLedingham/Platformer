@@ -50,6 +50,8 @@ namespace WindowsGame1
             currentFrame++;
         }
 
+        GamePadState previousGamePadState;
+
         public void update()
         {
             Console.WriteLine(Velocity.Y);
@@ -82,7 +84,6 @@ namespace WindowsGame1
 
             }
 
-
             bool noHit = true;
             for (int i = 0; i < Game1.surfaces.Count; i++)
             {
@@ -108,6 +109,7 @@ namespace WindowsGame1
                     break;
                 }
             }
+
             float sign;
             if (Velocity.X > 0)
             {
@@ -129,9 +131,9 @@ namespace WindowsGame1
                 Velocity.X = 0;
             }
 
-            if (Velocity.Y > 4)
+            if (Velocity.Y > 3)
             {
-                Velocity.Y = 4.0f;
+                Velocity.Y = 3.0f;
             }
 
             if (jumping == true)
@@ -171,8 +173,6 @@ namespace WindowsGame1
                 }
             }
 
-
-
             if (frameSkip == 8)
             {
                 if (stillFrame)
@@ -188,8 +188,37 @@ namespace WindowsGame1
                 frameSkip = 0;
             }
 
+            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
+            // Process input only if connected.
+            if (currentState.IsConnected)
+            {
+                // Increase vibration if the player is tapping the A button.
+                // Subtract vibration otherwise, even if the player holds down A
+                if (currentState.Buttons.A == ButtonState.Pressed)
+                {
+                    if (jumping == false)
+                    {
+                        jumping = true;
+                        Yacceleration = 1.0f;
+                    }
+                }
+                if (currentState.ThumbSticks.Left.X < 0 && Velocity.X > -3.0f)
+                {
+                    Velocity.X -= 0.2f;
+                }
+                else if (currentState.ThumbSticks.Left.X > 0 && Velocity.X < 3.0f)
+                {
+                    Velocity.X += 0.2f;
+                }
+
+                // Update previous gamepad state.
+                previousGamePadState = currentState;
+            }
 
         }
+
+
+
 
         public void keyPressed(Keys pressed)
         {

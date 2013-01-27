@@ -38,6 +38,12 @@ namespace WindowsGame1
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            graphics.IsFullScreen = false;
+
+
+            graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
+
+
         }
 
         /// <summary>
@@ -53,6 +59,21 @@ namespace WindowsGame1
             base.Initialize();
         }
 
+        void graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+#if XBOX
+            foreach (Microsoft.Xna.Framework.Graphics.DisplayMode displayMode in GraphicsAdapter.DefaultAdapter.SupportedDisplayModes)
+            {
+                if (displayMode.Width == 1920 || displayMode.Width == 1280)
+                {
+                    e.GraphicsDeviceInformation.PresentationParameters.BackBufferFormat = displayMode.Format;
+                    e.GraphicsDeviceInformation.PresentationParameters.BackBufferHeight = displayMode.Height;
+                    e.GraphicsDeviceInformation.PresentationParameters.BackBufferWidth = displayMode.Width;
+                }
+            }
+#endif
+        }
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -66,24 +87,6 @@ namespace WindowsGame1
             windowHeight = Window.ClientBounds.Height - 37;
             MyCircle = new Player(Content, spriteBatch);
             checkTime = DateTime.Now.Second;
-            /*for (int i = 0; i < (float)Math.Ceiling((double)800 / (double)43)-3; i++)
-            {
-                if (i == 6 || i ==7) continue;
-                surfaces.Add(new Surface(Content, spriteBatch, 43, 42, i*43,windowHeight));
-            }
-
-            
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200, windowHeight - 42));
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200, windowHeight - 42));
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 243, windowHeight - 42*2));
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200+43*2, windowHeight - 42*3));
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43*5, windowHeight - 42*4));
-
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 6, windowHeight - 42 * 4));
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 7, windowHeight - 42 * 4));
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 8, windowHeight - 42 * 4));
-
-            surfaces.Add(new Surface(Content, spriteBatch, 43, 42, 200 + 43 * 1, windowHeight - 42 * 6));*/
 
             currentLevel = new Level(@"Content/MAP.txt");
             Random random = new Random(DateTime.Now.Millisecond);
@@ -133,7 +136,7 @@ namespace WindowsGame1
             while (!spawnedStar)
             {
                 int randHeight = random.Next(1, Level.Height - 1);
-                if (currentLevel.Grid[randHeight][starX] == false && currentLevel.Grid[randHeight+1][starX] == true)
+                if (currentLevel.Grid[randHeight][starX] == false && currentLevel.Grid[randHeight + 1][starX] == true)
                 {
                     items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), (randHeight) * 42 + 12, "star"));
                     spawnedStar = true;
@@ -184,18 +187,39 @@ namespace WindowsGame1
 
 
 
+            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
+            // Process input only if connected.
+            if (currentState.IsConnected)
+            {
+                // Increase vibration if the player is tapping the A button.
+                // Subtract vibration otherwise, even if the player holds down A
+                if (currentState.Buttons.Y == ButtonState.Pressed && resetLevel == false)
+                {
+                    camX = camY = 0;
+                    nextLevel();
+                    resetLevel = true;
+                }
+                else if (currentState.Buttons.Y != ButtonState.Pressed)
+                {
+                    resetLevel = false;
+                }
+            }
+
             // TODO: Add your update logic here
             KeyboardState keyState = Keyboard.GetState();
             if (keyState.IsKeyUp(Keys.R))
             {
                 resetLevel = false;
             }
-            if(keyState.IsKeyDown(Keys.R) && resetLevel == false)
+            if (keyState.IsKeyDown(Keys.R) && resetLevel == false)
             {
                 camX = camY = 0;
                 nextLevel();
                 resetLevel = true;
             }
+
+
+            
 
             if (keyState.IsKeyDown(Keys.Q))
             {
@@ -280,7 +304,8 @@ namespace WindowsGame1
                     camX = -MyCircle.Pos.X + windowWidth / 2.0f;
                 }
                 Vector3 transVector = new Vector3(camX, camY - 10 * currentLevel.Grid.Count, 0.0f);
-                spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, Matrix.CreateTranslation(transVector));
+                Matrix SpriteScale = Matrix.CreateScale(graphics.GraphicsDevice.Viewport.Width / 800f, graphics.GraphicsDevice.Viewport.Width / 800f, 1);
+                spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, Matrix.CreateTranslation(transVector) * SpriteScale);
                 //MyLevel1.draw()
                 for (int i = 0; i < surfaces.Count; i++)
                 {
