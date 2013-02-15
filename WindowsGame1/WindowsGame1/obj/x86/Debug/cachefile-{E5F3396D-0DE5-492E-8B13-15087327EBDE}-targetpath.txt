@@ -10,4 +10,13 @@ Content\groundTileNew.xnb
 Content\groundTileNewFlip.xnb
 Content\dirtTile.xnb
 Content\ballsmall2.xnb
+Content\player2f1.xnb
+Content\player2f2.xnb
+Content\bhtex.xnb
+Content\SpriteFont1.xnb
+Content\SpriteFont2.xnb
+Content\player3f1.xnb
+Content\player3f2.xnb
+Content\player4f1.xnb
+Content\player4f2.xnb
 Content\MAP.txt

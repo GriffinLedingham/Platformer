@@ -57,3 +57,12 @@ C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Deb
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\WindowsGame1.application
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.exe.manifest
 C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\obj\x86\Debug\WindowsGame1.application
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player2f1.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player2f2.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bhtex.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont2.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player3f1.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player3f2.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player4f1.xnb
+C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player4f2.xnb

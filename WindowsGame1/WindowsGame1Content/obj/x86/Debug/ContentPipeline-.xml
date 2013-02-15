@@ -35,7 +35,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall.xnb</Output>
-      <Time>2012-12-30T23:02:21.1694364-08:00</Time>
+      <Time>2013-01-27T11:38:36.0981992-08:00</Time>
     </Item>
     <Item>
       <Source>cherry.png</Source>
@@ -44,7 +44,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\cherry.xnb</Output>
-      <Time>2012-12-31T11:36:15.9895741-08:00</Time>
+      <Time>2013-01-27T00:58:44.4155358-08:00</Time>
     </Item>
     <Item>
       <Source>Tile.png</Source>
@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\Tile.xnb</Output>
-      <Time>2012-12-31T11:48:06.3811909-08:00</Time>
+      <Time>2013-01-27T12:03:28.9562931-08:00</Time>
     </Item>
     <Item>
       <Source>bug.png</Source>
@@ -71,7 +71,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\star.xnb</Output>
-      <Time>2012-12-31T11:46:15.0081261-08:00</Time>
+      <Time>2013-01-27T12:23:38.0774084-08:00</Time>
     </Item>
     <Item>
       <Source>groundTileNew.png</Source>
@@ -107,7 +107,88 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\ballsmall2.xnb</Output>
-      <Time>2012-12-30T23:17:49.4858752-08:00</Time>
+      <Time>2013-01-27T11:36:50.8093517-08:00</Time>
+    </Item>
+    <Item>
+      <Source>player2f1.png</Source>
+      <Name>player2f1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player2f1.xnb</Output>
+      <Time>2013-01-27T12:28:24.30986-08:00</Time>
+    </Item>
+    <Item>
+      <Source>player2f2.png</Source>
+      <Name>player2f2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player2f2.xnb</Output>
+      <Time>2013-01-27T12:29:21.8586749-08:00</Time>
+    </Item>
+    <Item>
+      <Source>bhtex.png</Source>
+      <Name>bhtex</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\bhtex.xnb</Output>
+      <Time>2013-01-27T16:23:07.0606206-08:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2013-01-21T12:06:38-08:00</Time>
+    </Item>
+    <Item>
+      <Source>SpriteFont2.spritefont</Source>
+      <Name>SpriteFont2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\SpriteFont2.xnb</Output>
+      <Time>2013-01-21T12:06:38-08:00</Time>
+    </Item>
+    <Item>
+      <Source>player3f1.png</Source>
+      <Name>player3f1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player3f1.xnb</Output>
+      <Time>2013-02-11T23:16:27.2503292-08:00</Time>
+    </Item>
+    <Item>
+      <Source>player3f2.png</Source>
+      <Name>player3f2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player3f2.xnb</Output>
+      <Time>2013-02-11T23:17:10.3470826-08:00</Time>
+    </Item>
+    <Item>
+      <Source>player4f1.png</Source>
+      <Name>player4f1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player4f1.xnb</Output>
+      <Time>2013-02-11T23:18:10.5619104-08:00</Time>
+    </Item>
+    <Item>
+      <Source>player4f2.png</Source>
+      <Name>player4f2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Griff\Documents\GitHub\Platformer\WindowsGame1\WindowsGame1\bin\x86\Debug\Content\player4f2.xnb</Output>
+      <Time>2013-02-11T23:17:48.9244235-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

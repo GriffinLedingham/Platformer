@@ -18,7 +18,14 @@ namespace WindowsGame1
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteBatch ForegroundBatch;
+        SpriteFont Segoi, SegoiSmall;
         Player MyCircle;
+        Player2 MyCircle2;
+        Player3 MyCircle3;
+        Player4 MyCircle4;
+        int score1, score2, score3, score4;
+
         public static List<Surface> surfaces = new List<Surface>();
         public static List<Item> items = new List<Item>();
         public static float camX, camY;
@@ -30,6 +37,7 @@ namespace WindowsGame1
         public static bool spawnedStar = false;
         bool resetLevel = false;
         int starAttempCount = 0;
+        public static Vector2 starPos;
 
         public static int windowHeight, windowWidth;
 
@@ -74,6 +82,9 @@ namespace WindowsGame1
 #endif
         }
 
+
+        Texture2D BGTexture;
+
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
@@ -83,10 +94,16 @@ namespace WindowsGame1
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            Segoi = Content.Load<SpriteFont>("SpriteFont1");
+            SegoiSmall = Content.Load<SpriteFont>("SpriteFont2");
+            ForegroundBatch = new SpriteBatch(GraphicsDevice); 
+
             windowWidth = Window.ClientBounds.Width;
             windowHeight = Window.ClientBounds.Height - 37;
             MyCircle = new Player(Content, spriteBatch);
             checkTime = DateTime.Now.Second;
+
+            BGTexture = Content.Load<Texture2D>("bhtex");
 
             currentLevel = new Level(@"Content/MAP.txt");
             Random random = new Random(DateTime.Now.Millisecond);
@@ -139,6 +156,8 @@ namespace WindowsGame1
                 if (currentLevel.Grid[randHeight][starX] == false && currentLevel.Grid[randHeight + 1][starX] == true)
                 {
                     items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), (randHeight) * 42 + 12, "star"));
+                    starPos.X = starX * 43 + (43 / 4);
+                    starPos.Y = (randHeight) * 42 + 12;
                     spawnedStar = true;
                     //break;
                 }
@@ -150,6 +169,11 @@ namespace WindowsGame1
             }
 
             MyCircle = new Player(Content, spriteBatch);
+            MyCircle2 = new Player2(Content, spriteBatch);
+            MyCircle3 = new Player3(Content, spriteBatch);
+            MyCircle4 = new Player4(Content, spriteBatch);
+
+
 
             //items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), 8 * 42 + 12, "star"));
 
@@ -251,12 +275,16 @@ namespace WindowsGame1
             }*/
 
 
-            if (MyCircle.starStatus())
+            if (MyCircle.starStatus() || MyCircle2.starStatus() || MyCircle3.starStatus() || MyCircle4.starStatus())
             {
                 nextLevel();
             }
 
             MyCircle.update();
+            MyCircle2.update();
+            MyCircle3.update();
+            MyCircle4.update();
+
 
             base.Update(gameTime);
         }
@@ -280,33 +308,94 @@ namespace WindowsGame1
             GraphicsDevice.Clear(tempCol);*/
 
             GraphicsDevice.Clear(bgColor);
+            String Score;
+
+            
+
 
             if (gameOver == false)
             {
 
-
+                //Vector2 averagePos;
+                //averagePos.X = (MyCircle.Pos.X + MyCircle2.Pos.X) / 2;
+                //averagePos.Y = (MyCircle.Pos.Y + MyCircle2.Pos.Y) / 2;
                 // TODO: Add your drawing code here
+
+                /*if (averagePos.Y > windowHeight / 2)
+                {
+                    camY = 0;
+                }
+                else
+                {
+                    camY = -averagePos.Y + windowHeight / 2.0f;
+                }
+                if (averagePos.X < windowWidth / 2 || Level.levelType == 1)
+                {
+                    camX = 0;
+                }
+                else
+                {
+                    camX = -averagePos.X + windowWidth / 2.0f;
+
+                }*/
+
                 if (MyCircle.Pos.Y > windowHeight / 2)
                 {
                     camY = 0;
                 }
                 else
                 {
-                    camY = -MyCircle.Pos.Y + windowHeight / 2.0f;
+                        camY = -MyCircle.Pos.Y + windowHeight / 2.0f;
                 }
-
-                if (MyCircle.Pos.X < windowWidth / 2 || Level.levelType == 1)
+                if ((MyCircle.Pos.X < windowWidth / 2 || Level.levelType == 1))
                 {
                     camX = 0;
                 }
                 else
                 {
-                    camX = -MyCircle.Pos.X + windowWidth / 2.0f;
+                        camX = -MyCircle.Pos.X + windowWidth / 2.0f;
                 }
+
+                /*if (MyCircle.Pos.X - MyCircle2.Pos.X > windowWidth)
+                {
+                    MyCircle2.Pos.X = MyCircle.Pos.X - windowWidth / 2 +50;
+                    for (int i = Game1.surfaces.Count - 1; i >= 0; i--)
+                    {
+                        while (Game1.surfaces[i].CheckCollision(MyCircle2) != 0)
+                        {
+                            MyCircle2.Pos.X += 4;
+                        }
+                    }
+                }
+
+                if (MyCircle2.Pos.X - MyCircle.Pos.X > windowWidth)
+                {
+                    MyCircle.Pos.X = MyCircle2.Pos.X - windowWidth / 2 + 50;
+                    for (int i = Game1.surfaces.Count - 1; i >= 0; i--)
+                    {
+                        while (Game1.surfaces[i].CheckCollision(MyCircle) != 0)
+                        {
+                            MyCircle.Pos.X += 4;
+                        }
+                    }
+                }*/
+                
+
                 Vector3 transVector = new Vector3(camX, camY - 10 * currentLevel.Grid.Count, 0.0f);
+                float distance = (float)Math.Sqrt((Math.Pow((MyCircle.Pos.Y - MyCircle2.Pos.Y), 2) + Math.Pow((MyCircle.Pos.X - MyCircle2.Pos.X), 2)));
+                Console.WriteLine(distance);
                 Matrix SpriteScale = Matrix.CreateScale(graphics.GraphicsDevice.Viewport.Width / 800f, graphics.GraphicsDevice.Viewport.Width / 800f, 1);
-                spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, Matrix.CreateTranslation(transVector) * SpriteScale);
+                //Matrix SpriteScale = Matrix.CreateScale(distance, distance, 1);
+                spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, null, null, null, null, SpriteScale);
+
+                spriteBatch.Draw(BGTexture, new Vector2(0, 0), Color.White);
+                
+
+                spriteBatch.End();
+
+                spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, Matrix.CreateTranslation(transVector) * SpriteScale);
                 //MyLevel1.draw()
+
                 for (int i = 0; i < surfaces.Count; i++)
                 {
                     surfaces[i].draw();
@@ -318,11 +407,48 @@ namespace WindowsGame1
                 }
 
                 MyCircle.draw();
+                MyCircle2.draw();
+                MyCircle3.draw();
+                MyCircle4.draw();
+
+
                 spriteBatch.End();
+                
+                ForegroundBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend, null, null, null, null, SpriteScale);
+                Score = score.ToString();
+                Vector2 FontOrigin = Segoi.MeasureString("Score: " + Score) / 2;
+                Vector2 fpos = new Vector2(130, 50);
+
+                Color temp = new Color(12, 179, 238);
+                ForegroundBatch.DrawString(Segoi, "Dan: " + MyCircle.Score, fpos, temp,
+                    0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
+
+                fpos = new Vector2(670, 50);
+
+                ForegroundBatch.DrawString(Segoi, "Studly: " + MyCircle2.Score, fpos, temp,
+                    0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
+
+                fpos = new Vector2(130, 420);
+
+
+                ForegroundBatch.DrawString(Segoi, "Luke: " + MyCircle3.Score, fpos, temp,
+                    0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
+
+                fpos = new Vector2(670, 420);
+
+
+                ForegroundBatch.DrawString(Segoi, "Griff: " + MyCircle4.Score, fpos, temp,
+                    0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
+                ForegroundBatch.End();
+
+
             }
 
             base.Draw(gameTime);
         }
+        
+        
+
 
         protected void nextLevel()
         {
@@ -387,6 +513,8 @@ namespace WindowsGame1
                 if (currentLevel.Grid[randHeight][starX] == false && currentLevel.Grid[randHeight + 1][starX] == true)
                 {
                     items.Add(new Item(Content, spriteBatch, starX * 43 + (43 / 4), (randHeight) * 42 + 12, "star"));
+                    starPos.X = starX * 43 + (43 / 4);
+                    starPos.Y = (randHeight) * 42 + 12;
                     spawnedStar = true;
                     //break;
                 }
@@ -396,7 +524,19 @@ namespace WindowsGame1
                 }
 
             }
+            score1 = MyCircle.Score;
+            score2 = MyCircle2.Score;
+            score3 = MyCircle3.Score;
+            score4 = MyCircle4.Score;
             MyCircle = new Player(Content, spriteBatch);
+            MyCircle2 = new Player2(Content, spriteBatch);
+            MyCircle3 = new Player3(Content, spriteBatch);
+            MyCircle4 = new Player4(Content, spriteBatch);
+            MyCircle.Score = score1;
+            MyCircle2.Score = score2;
+            MyCircle3.Score = score3;
+            MyCircle4.Score = score4;
+
             if (!spawnedStar)
             {
                 nextLevel();

@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace WindowsGame1
 {
-    public class Player
+    public class Player4
     {
         int currentFrame = 0;
         public Vector2 Pos;
@@ -30,11 +30,12 @@ namespace WindowsGame1
         public float distance = 0;
         public int Score = 0;
 
-        public Player(ContentManager Content, SpriteBatch spriteBatch)
+
+        public Player4(ContentManager Content, SpriteBatch spriteBatch)
         {
             this.Content = Content;
             this.spriteBatch = spriteBatch;
-            SpriteTexture = Content.Load<Texture2D>("ballsmall");
+            SpriteTexture = Content.Load<Texture2D>("player4f1");
             Pos.Y = Game1.windowHeight - 120;
             jumping = true;
             Pos.X = 49;
@@ -78,7 +79,6 @@ namespace WindowsGame1
                         {
                             Score += 10;
                         }
-
                         Game1.items[i].existing = false;
                         
                     }
@@ -190,18 +190,18 @@ namespace WindowsGame1
             {
                 if (stillFrame)
                 {
-                    SpriteTexture = Content.Load<Texture2D>("ballsmall2");
+                    SpriteTexture = Content.Load<Texture2D>("player4f2");
                     stillFrame = false;
                 }
                 else
                 {
-                    SpriteTexture = Content.Load<Texture2D>("ballsmall");
+                    SpriteTexture = Content.Load<Texture2D>("player4f1");
                     stillFrame = true;
                 }
                 frameSkip = 0;
             }
 
-            GamePadState currentState = GamePad.GetState(PlayerIndex.One);
+            GamePadState currentState = GamePad.GetState(PlayerIndex.Four);
             // Process input only if connected.
             if (currentState.IsConnected)
             {
@@ -265,7 +265,7 @@ namespace WindowsGame1
             }
         }
 
-        public bool CheckCollision(Player s, Item i)
+        public bool CheckCollision(Player4 s, Item i)
         {
             float leftA, leftB;
             float rightA, rightB;

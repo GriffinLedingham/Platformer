@@ -114,6 +114,133 @@ namespace WindowsGame1
             return 1;
 
         }
+
+        public int CheckCollision(Player2 s)
+        {
+
+            float leftA, leftB;
+            float rightA, rightB;
+            float topA, topB;
+            float bottomA, bottomB;
+
+            leftA = Pos.X;
+            rightA = Pos.X + Pos.Width;
+            topA = Pos.Y;
+            bottomA = Pos.Y + Pos.Height;
+
+            leftB = s.Pos.X;
+            rightB = s.Pos.X + s.SpriteTexture.Width;
+            topB = s.Pos.Y;
+            bottomB = s.Pos.Y + s.SpriteTexture.Height;
+
+            if (bottomA <= topB)
+            {
+                return 0;
+            }
+
+            if (topA >= bottomB)
+            {
+                return 0;
+            }
+
+            if (rightA <= leftB)
+            {
+                return 0;
+            }
+
+            if (leftA >= rightB)
+            {
+                return 0;
+            }
+
+            return 1;
+
+        }
+
+        public int CheckCollision(Player3 s)
+        {
+
+            float leftA, leftB;
+            float rightA, rightB;
+            float topA, topB;
+            float bottomA, bottomB;
+
+            leftA = Pos.X;
+            rightA = Pos.X + Pos.Width;
+            topA = Pos.Y;
+            bottomA = Pos.Y + Pos.Height;
+
+            leftB = s.Pos.X;
+            rightB = s.Pos.X + s.SpriteTexture.Width;
+            topB = s.Pos.Y;
+            bottomB = s.Pos.Y + s.SpriteTexture.Height;
+
+            if (bottomA <= topB)
+            {
+                return 0;
+            }
+
+            if (topA >= bottomB)
+            {
+                return 0;
+            }
+
+            if (rightA <= leftB)
+            {
+                return 0;
+            }
+
+            if (leftA >= rightB)
+            {
+                return 0;
+            }
+
+            return 1;
+
+        }
+
+        public int CheckCollision(Player4 s)
+        {
+
+            float leftA, leftB;
+            float rightA, rightB;
+            float topA, topB;
+            float bottomA, bottomB;
+
+            leftA = Pos.X;
+            rightA = Pos.X + Pos.Width;
+            topA = Pos.Y;
+            bottomA = Pos.Y + Pos.Height;
+
+            leftB = s.Pos.X;
+            rightB = s.Pos.X + s.SpriteTexture.Width;
+            topB = s.Pos.Y;
+            bottomB = s.Pos.Y + s.SpriteTexture.Height;
+
+            if (bottomA <= topB)
+            {
+                return 0;
+            }
+
+            if (topA >= bottomB)
+            {
+                return 0;
+            }
+
+            if (rightA <= leftB)
+            {
+                return 0;
+            }
+
+            if (leftA >= rightB)
+            {
+                return 0;
+            }
+
+            return 1;
+
+        }
+
     }
 
 }

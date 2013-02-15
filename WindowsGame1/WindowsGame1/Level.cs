@@ -26,7 +26,7 @@ namespace WindowsGame1
         //Leveltype 0: Pre-Defined Input File
         //Leveltype 1: Tall Vertical Level w/ Pre Defined Side Bounds. Only Height variable is used in this case.
         //LevelType 2: Scrolling Horizontal Level
-        public static int levelType = 2;
+        public static int levelType = 1;
 
         public Level(string filename)
         {
@@ -39,10 +39,13 @@ namespace WindowsGame1
                 line = reader.ReadLine();
                 int levelLength = int.Parse(line);
                 Width = levelLength;
+                line = reader.ReadLine();
+                int levelHeight = int.Parse(line);
+                Height = levelHeight;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    bool[] row = new bool[levelLength];
-                    for (int i = 1; i < levelLength - 1; i++)
+                    bool[] row = new bool[Width];
+                    for (int i = 1; i < Width - 1; i++)
                     {
                         row[i] = (line[i - 1] == '1' ? true : false);
                     }
