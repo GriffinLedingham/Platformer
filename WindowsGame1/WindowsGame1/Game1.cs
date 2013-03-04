@@ -420,24 +420,24 @@ namespace WindowsGame1
                 Vector2 fpos = new Vector2(130, 50);
 
                 Color temp = new Color(12, 179, 238);
-                ForegroundBatch.DrawString(Segoi, "Dan: " + MyCircle.Score, fpos, temp,
+                ForegroundBatch.DrawString(Segoi, "Player 1: " + MyCircle.Score, fpos, temp,
                     0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
 
                 fpos = new Vector2(670, 50);
 
-                ForegroundBatch.DrawString(Segoi, "Studly: " + MyCircle2.Score, fpos, temp,
+                ForegroundBatch.DrawString(Segoi, "Player 2: " + MyCircle2.Score, fpos, temp,
                     0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
 
                 fpos = new Vector2(130, 420);
 
 
-                ForegroundBatch.DrawString(Segoi, "Luke: " + MyCircle3.Score, fpos, temp,
+                ForegroundBatch.DrawString(Segoi, "Player 3: " + MyCircle3.Score, fpos, temp,
                     0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
 
                 fpos = new Vector2(670, 420);
 
 
-                ForegroundBatch.DrawString(Segoi, "Griff: " + MyCircle4.Score, fpos, temp,
+                ForegroundBatch.DrawString(Segoi, "Player 4: " + MyCircle4.Score, fpos, temp,
                     0f, FontOrigin, .5f, SpriteEffects.None, 0.5f);
                 ForegroundBatch.End();
 
